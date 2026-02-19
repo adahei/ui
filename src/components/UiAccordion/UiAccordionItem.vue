@@ -197,6 +197,10 @@ const classes = computed(() => [
 
   // Open state
   &--open {
+    .ui-accordion-item__trigger {
+      background-color: var(--accordion-trigger-bg-active);
+    }
+
     .ui-accordion-item__icon {
       transform: rotate(180deg);
     }

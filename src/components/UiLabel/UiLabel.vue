@@ -27,7 +27,7 @@ withDefaults(defineProps<Props>(), {
   gap: var(--spacing-1);
   font-family: var(--font-sans);
   font-weight: var(--font-medium);
-  color: var(--text-primary);
+  color: var(--label-text);
 
   &--sm {
     font-size: var(--text-xs);

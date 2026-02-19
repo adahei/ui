@@ -32,6 +32,8 @@ interface Props {
   id?: string
   /** Name attribute */
   name?: string
+  /** Full width, grows in flex containers */
+  block?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -41,6 +43,7 @@ const props = withDefaults(defineProps<Props>(), {
   error: false,
   showPreview: true,
   placeholder: 'No file selected',
+  block: false,
 })
 
 const emit = defineEmits<{
@@ -90,6 +93,7 @@ const classes = computed(() => [
     'ui-file-input--disabled': props.disabled,
     'ui-file-input--dragging': isDragging.value,
     'ui-file-input--has-files': hasFiles.value,
+    'ui-file-input--block': props.block,
   },
 ])
 
@@ -583,6 +587,13 @@ function onInputChange(e: Event) {
     .ui-file-input__file {
       opacity: 0.5;
     }
+  }
+
+  // Block (full width, grows in flex containers)
+  &--block {
+    width: 100%;
+    flex: 1 1 0%;
+    min-width: 0;
   }
 }
 </style>

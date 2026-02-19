@@ -239,6 +239,12 @@ function handleError(message: string) {
             <td><code>false</code></td>
             <td>Error state or message</td>
           </tr>
+          <tr>
+            <td><code>block</code></td>
+            <td><code>boolean</code></td>
+            <td><code>false</code></td>
+            <td>Full width, grows in flex containers</td>
+          </tr>
         </tbody>
       </table>
     </section>

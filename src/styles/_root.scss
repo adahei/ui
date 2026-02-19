@@ -5,19 +5,19 @@
 
 :root {
   // ------------------------------------------
-  // Colors - Gray Scale (cooler, slightly blue-tinted)
+  // Colors - Gray Scale (neutral)
   // ------------------------------------------
-  --color-gray-50: #f8fafc;
-  --color-gray-100: #f1f5f9;
-  --color-gray-200: #e2e8f0;
-  --color-gray-300: #cbd5e1;
-  --color-gray-400: #94a3b8;
-  --color-gray-500: #64748b;
-  --color-gray-600: #475569;
-  --color-gray-700: #334155;
-  --color-gray-800: #1e293b;
-  --color-gray-900: #0f172a;
-  --color-gray-950: #020617;
+  --color-gray-50: #fafafa;
+  --color-gray-100: #f5f5f5;
+  --color-gray-200: #e5e5e5;
+  --color-gray-300: #d4d4d4;
+  --color-gray-400: #a3a3a3;
+  --color-gray-500: #737373;
+  --color-gray-600: #525252;
+  --color-gray-700: #404040;
+  --color-gray-800: #262626;
+  --color-gray-900: #171717;
+  --color-gray-950: #0a0a0a;
 
   // ------------------------------------------
   // Colors - Primary (Refined Blue)
@@ -305,6 +305,7 @@
   --accordion-divider: var(--border-primary);
   --accordion-trigger-bg: var(--bg-primary);
   --accordion-trigger-bg-hover: var(--bg-secondary);
+  --accordion-trigger-bg-active: var(--bg-tertiary);
   --accordion-trigger-text: var(--text-primary);
   --accordion-icon-color: var(--text-tertiary);
   --accordion-content-bg: var(--bg-primary);
@@ -335,6 +336,9 @@
   --input-control-checked-bg-hover: var(--color-primary-600);
   --input-control-checked-border: var(--color-primary-500);
   --input-control-indicator: var(--color-white);
+
+  // Label
+  --label-text: var(--color-gray-600);
 }
 
 // ============================================
@@ -439,6 +443,7 @@
   --accordion-divider: var(--border-primary);
   --accordion-trigger-bg: var(--bg-primary);
   --accordion-trigger-bg-hover: var(--bg-secondary);
+  --accordion-trigger-bg-active: var(--bg-tertiary);
   --accordion-trigger-text: var(--text-primary);
   --accordion-icon-color: var(--text-tertiary);
   --accordion-content-bg: var(--bg-primary);
@@ -463,6 +468,9 @@
   --input-control-checked-bg-hover: var(--color-primary-400);
   --input-control-checked-border: var(--color-primary-500);
   --input-control-indicator: var(--color-white);
+
+  // Label
+  --label-text: var(--color-gray-400);
 
   // Shadows - Glow effect for dark mode
   --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.5);
@@ -573,6 +581,7 @@
     --accordion-divider: var(--border-primary);
     --accordion-trigger-bg: var(--bg-primary);
     --accordion-trigger-bg-hover: var(--bg-secondary);
+    --accordion-trigger-bg-active: var(--bg-tertiary);
     --accordion-trigger-text: var(--text-primary);
     --accordion-icon-color: var(--text-tertiary);
     --accordion-content-bg: var(--bg-primary);
@@ -597,5 +606,8 @@
     --input-control-checked-bg-hover: var(--color-primary-400);
     --input-control-checked-border: var(--color-primary-500);
     --input-control-indicator: var(--color-white);
+
+    // Label
+    --label-text: var(--color-gray-400);
   }
 }

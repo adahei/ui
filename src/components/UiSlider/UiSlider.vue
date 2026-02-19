@@ -17,6 +17,7 @@ interface Props {
   showValue?: boolean
   id?: string
   name?: string
+  block?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -27,6 +28,7 @@ const props = withDefaults(defineProps<Props>(), {
   disabled: false,
   error: false,
   showValue: false,
+  block: false,
 })
 
 // Get size from parent input group if not explicitly set
@@ -70,6 +72,7 @@ const classes = computed(() => [
   {
     'ui-slider--error': hasError.value,
     'ui-slider--disabled': props.disabled,
+    'ui-slider--block': props.block,
   },
 ])
 
@@ -345,6 +348,13 @@ function onInput(event: Event) {
     .ui-slider__value {
       opacity: 0.5;
     }
+  }
+
+  // Block (full width, grows in flex containers)
+  &--block {
+    width: 100%;
+    flex: 1 1 0%;
+    min-width: 0;
   }
 }
 </style>
