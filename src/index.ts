@@ -1,3 +1,6 @@
+// Styles
+import './styles/main.scss'
+
 // Components
 export { default as UiAccordion } from './components/UiAccordion/UiAccordion.vue'
 export { default as UiAccordionItem } from './components/UiAccordion/UiAccordionItem.vue'
