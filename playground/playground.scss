@@ -1,0 +1,127 @@
+// Playground-specific styles
+
+.playground {
+  display: flex;
+  min-height: 100vh;
+
+  &__sidebar {
+    width: 240px;
+    flex-shrink: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background-color: var(--bg-secondary);
+    border-right: 1px solid var(--border-primary);
+    padding: var(--spacing-4);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+  &__logo {
+    font-size: var(--text-lg);
+    font-weight: var(--font-bold);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-4);
+    padding: var(--spacing-2);
+    flex-shrink: 0;
+  }
+
+  &__nav {
+    flex: 1;
+    overflow-y: auto;
+  }
+
+  &__theme-toggle {
+    margin-top: auto;
+    padding-top: var(--spacing-4);
+    border-top: 1px solid var(--border-primary);
+    flex-shrink: 0;
+  }
+
+  &__main {
+    flex: 1;
+    margin-left: 240px; // Same as sidebar width
+    padding: var(--spacing-8);
+    min-height: 100vh;
+    overflow-y: auto;
+  }
+
+  &__content {
+    max-width: 800px;
+  }
+}
+
+// Page styles
+.page {
+  &__title {
+    font-size: var(--text-3xl);
+    font-weight: var(--font-bold);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-2);
+  }
+
+  &__description {
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-8);
+  }
+
+  &__section {
+    margin-bottom: var(--spacing-8);
+  }
+
+  &__section-title {
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-4);
+  }
+}
+
+// Example box - layout modifiers for UiCard
+.ui-card.example-row > .ui-card__body {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-4);
+}
+
+.ui-card.example-column > .ui-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+// Props table
+.props-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+
+  th,
+  td {
+    padding: var(--spacing-3);
+    text-align: left;
+    border-bottom: 1px solid var(--border-primary);
+  }
+
+  th {
+    font-weight: var(--font-semibold);
+    color: var(--text-primary);
+    background-color: var(--bg-secondary);
+  }
+
+  td {
+    color: var(--text-secondary);
+  }
+
+  code {
+    background-color: var(--bg-tertiary);
+    padding: var(--spacing-0-5) var(--spacing-1);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+  }
+}

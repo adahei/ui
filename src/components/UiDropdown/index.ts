@@ -1,0 +1,6 @@
+export { default as UiDropdown } from './UiDropdown.vue'
+export { default as UiDropdownTrigger } from './UiDropdownTrigger.vue'
+export { default as UiDropdownMenu } from './UiDropdownMenu.vue'
+export { default as UiDropdownItem } from './UiDropdownItem.vue'
+export { default as UiDropdownSeparator } from './UiDropdownSeparator.vue'
+export type { DropdownPlacement } from './types'

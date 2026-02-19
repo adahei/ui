@@ -1,0 +1,601 @@
+// ============================================
+// Foundation Variables
+// These are the raw design tokens - do not change for dark mode
+// ============================================
+
+:root {
+  // ------------------------------------------
+  // Colors - Gray Scale (cooler, slightly blue-tinted)
+  // ------------------------------------------
+  --color-gray-50: #f8fafc;
+  --color-gray-100: #f1f5f9;
+  --color-gray-200: #e2e8f0;
+  --color-gray-300: #cbd5e1;
+  --color-gray-400: #94a3b8;
+  --color-gray-500: #64748b;
+  --color-gray-600: #475569;
+  --color-gray-700: #334155;
+  --color-gray-800: #1e293b;
+  --color-gray-900: #0f172a;
+  --color-gray-950: #020617;
+
+  // ------------------------------------------
+  // Colors - Primary (Refined Blue)
+  // ------------------------------------------
+  --color-primary-50: #eff6ff;
+  --color-primary-100: #dbeafe;
+  --color-primary-200: #bfdbfe;
+  --color-primary-300: #93c5fd;
+  --color-primary-400: #60a5fa;
+  --color-primary-500: #3b82f6;
+  --color-primary-600: #2563eb;
+  --color-primary-700: #1d4ed8;
+  --color-primary-800: #1e40af;
+  --color-primary-900: #1e3a8a;
+  --color-primary-950: #172554;
+
+  // ------------------------------------------
+  // Colors - Secondary (Muted Violet)
+  // ------------------------------------------
+  --color-secondary-50: #f5f3ff;
+  --color-secondary-100: #ede9fe;
+  --color-secondary-200: #ddd6fe;
+  --color-secondary-300: #c4b5fd;
+  --color-secondary-400: #a78bfa;
+  --color-secondary-500: #8b5cf6;
+  --color-secondary-600: #7c3aed;
+  --color-secondary-700: #6d28d9;
+  --color-secondary-800: #5b21b6;
+  --color-secondary-900: #4c1d95;
+  --color-secondary-950: #2e1065;
+
+  // ------------------------------------------
+  // Colors - Success (Emerald Green)
+  // ------------------------------------------
+  --color-success-50: #ecfdf5;
+  --color-success-100: #d1fae5;
+  --color-success-200: #a7f3d0;
+  --color-success-300: #6ee7b7;
+  --color-success-400: #34d399;
+  --color-success-500: #10b981;
+  --color-success-600: #059669;
+  --color-success-700: #047857;
+  --color-success-800: #065f46;
+  --color-success-900: #064e3b;
+  --color-success-950: #022c22;
+
+  // ------------------------------------------
+  // Colors - Warning (Vivid Orange)
+  // ------------------------------------------
+  --color-warning-50: #fff7ed;
+  --color-warning-100: #ffedd5;
+  --color-warning-200: #fed7aa;
+  --color-warning-300: #fdba74;
+  --color-warning-400: #fb923c;
+  --color-warning-500: #f97316;
+  --color-warning-600: #ea580c;
+  --color-warning-700: #c2410c;
+  --color-warning-800: #9a3412;
+  --color-warning-900: #7c2d12;
+  --color-warning-950: #431407;
+
+  // ------------------------------------------
+  // Colors - Error (Vivid Red)
+  // ------------------------------------------
+  --color-error-50: #fef2f2;
+  --color-error-100: #fee2e2;
+  --color-error-200: #fecaca;
+  --color-error-300: #fca5a5;
+  --color-error-400: #f87171;
+  --color-error-500: #ef4444;
+  --color-error-600: #dc2626;
+  --color-error-700: #b91c1c;
+  --color-error-800: #991b1b;
+  --color-error-900: #7f1d1d;
+  --color-error-950: #450a0a;
+
+  // ------------------------------------------
+  // Colors - Info (Sky Blue)
+  // ------------------------------------------
+  --color-info-50: #f0f9ff;
+  --color-info-100: #e0f2fe;
+  --color-info-200: #bae6fd;
+  --color-info-300: #7dd3fc;
+  --color-info-400: #38bdf8;
+  --color-info-500: #0ea5e9;
+  --color-info-600: #0284c7;
+  --color-info-700: #0369a1;
+  --color-info-800: #075985;
+  --color-info-900: #0c4a6e;
+  --color-info-950: #082f49;
+
+  // ------------------------------------------
+  // Colors - Neutral
+  // ------------------------------------------
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  // ------------------------------------------
+  // Spacing Scale (4px base)
+  // ------------------------------------------
+  --spacing-0: 0;
+  --spacing-0-5: 0.125rem; // 2px
+  --spacing-1: 0.25rem;    // 4px
+  --spacing-1-5: 0.375rem; // 6px
+  --spacing-2: 0.5rem;     // 8px
+  --spacing-2-5: 0.625rem; // 10px
+  --spacing-3: 0.75rem;    // 12px
+  --spacing-3-5: 0.875rem; // 14px
+  --spacing-4: 1rem;       // 16px
+  --spacing-5: 1.25rem;    // 20px
+  --spacing-6: 1.5rem;     // 24px
+  --spacing-7: 1.75rem;    // 28px
+  --spacing-8: 2rem;       // 32px
+  --spacing-9: 2.25rem;    // 36px
+  --spacing-10: 2.5rem;    // 40px
+  --spacing-11: 2.75rem;   // 44px
+  --spacing-12: 3rem;      // 48px
+  --spacing-14: 3.5rem;    // 56px
+  --spacing-16: 4rem;      // 64px
+  --spacing-20: 5rem;      // 80px
+  --spacing-24: 6rem;      // 96px
+
+  // ------------------------------------------
+  // Border Radius
+  // ------------------------------------------
+  --radius-none: 0;
+  --radius-sm: 0.125rem;   // 2px
+  --radius-md: 0.375rem;   // 6px
+  --radius-lg: 0.5rem;     // 8px
+  --radius-xl: 0.75rem;    // 12px
+  --radius-2xl: 1rem;      // 16px
+  --radius-full: 9999px;
+
+  // ------------------------------------------
+  // Shadows
+  // ------------------------------------------
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+  // ------------------------------------------
+  // Transitions
+  // ------------------------------------------
+  --transition-fast: 150ms ease;
+  --transition-normal: 200ms ease;
+  --transition-slow: 300ms ease;
+
+  // ------------------------------------------
+  // Z-Index Scale
+  // ------------------------------------------
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+}
+
+// ============================================
+// Semantic Variables - Light Mode (default)
+// These map foundation tokens to semantic meanings
+// ============================================
+
+:root {
+  // ------------------------------------------
+  // Semantic - Background
+  // ------------------------------------------
+  --bg-primary: var(--color-white);
+  --bg-secondary: var(--color-gray-50);
+  --bg-tertiary: var(--color-gray-100);
+  --bg-inverse: var(--color-gray-900);
+
+  // ------------------------------------------
+  // Semantic - Text
+  // ------------------------------------------
+  --text-primary: var(--color-gray-900);
+  --text-secondary: var(--color-gray-600);
+  --text-tertiary: var(--color-gray-500);
+  --text-inverse: var(--color-white);
+  --text-disabled: var(--color-gray-400);
+
+  // ------------------------------------------
+  // Semantic - Border
+  // ------------------------------------------
+  --border-primary: var(--color-gray-200);
+  --border-secondary: var(--color-gray-300);
+  --border-focus: var(--color-primary-500);
+
+  // ------------------------------------------
+  // Semantic - Interactive States
+  // ------------------------------------------
+  --interactive-primary: var(--color-primary-500);
+  --interactive-primary-hover: var(--color-primary-600);
+  --interactive-primary-active: var(--color-primary-700);
+
+  --interactive-secondary: var(--color-secondary-500);
+  --interactive-secondary-hover: var(--color-secondary-600);
+  --interactive-secondary-active: var(--color-secondary-700);
+
+  // ------------------------------------------
+  // Semantic - Status Colors
+  // ------------------------------------------
+  --status-success: var(--color-success-500);
+  --status-success-bg: var(--color-success-50);
+  --status-success-border: var(--color-success-200);
+
+  --status-warning: var(--color-warning-500);
+  --status-warning-bg: var(--color-warning-50);
+  --status-warning-border: var(--color-warning-200);
+
+  --status-error: var(--color-error-500);
+  --status-error-bg: var(--color-error-50);
+  --status-error-border: var(--color-error-200);
+
+  --status-info: var(--color-info-500);
+  --status-info-bg: var(--color-info-50);
+  --status-info-border: var(--color-info-200);
+
+  // ------------------------------------------
+  // Semantic - Focus Ring
+  // ------------------------------------------
+  --focus-ring: 0 0 0 2px var(--bg-primary), 0 0 0 4px var(--border-focus);
+
+  // ------------------------------------------
+  // Semantic - Badge/Solid Colors
+  // For badges, pills, and other solid-colored elements
+  // ------------------------------------------
+  --badge-primary-bg: var(--color-primary-500);
+  --badge-primary-text: var(--color-white);
+
+  --badge-secondary-bg: var(--color-gray-200);
+  --badge-secondary-text: var(--color-gray-700);
+
+  --badge-success-bg: var(--color-success-500);
+  --badge-success-text: var(--color-white);
+
+  --badge-warning-bg: var(--color-warning-500);
+  --badge-warning-text: var(--color-gray-900);
+
+  --badge-error-bg: var(--color-error-500);
+  --badge-error-text: var(--color-white);
+
+  // ------------------------------------------
+  // Semantic - Button Colors
+  // Scoped tokens for button variants and states
+  // ------------------------------------------
+
+  // Primary button
+  --button-primary-bg: var(--color-primary-500);
+  --button-primary-text: var(--color-white);
+  --button-primary-bg-hover: var(--color-primary-600);
+  --button-primary-bg-active: var(--color-primary-700);
+  --button-primary-bg-selected: var(--color-primary-700);
+
+  // Secondary button
+  --button-secondary-bg: var(--color-secondary-500);
+  --button-secondary-text: var(--color-white);
+  --button-secondary-bg-hover: var(--color-secondary-600);
+  --button-secondary-bg-active: var(--color-secondary-700);
+  --button-secondary-bg-selected: var(--color-secondary-700);
+
+  // Outline button
+  --button-outline-bg: transparent;
+  --button-outline-text: var(--text-primary);
+  --button-outline-border: var(--input-border);
+  --button-outline-bg-hover: var(--color-gray-100);
+  --button-outline-border-hover: var(--color-gray-400);
+  --button-outline-bg-active: var(--color-gray-200);
+  --button-outline-bg-selected: var(--color-gray-200);
+  --button-outline-border-selected: var(--color-gray-400);
+
+  // Ghost button
+  --button-ghost-bg: transparent;
+  --button-ghost-text: var(--text-primary);
+  --button-ghost-bg-hover: var(--color-gray-100);
+  --button-ghost-bg-active: var(--color-gray-200);
+  --button-ghost-bg-selected: var(--color-gray-200);
+
+  // ------------------------------------------
+  // Semantic - Accordion Colors
+  // ------------------------------------------
+  --accordion-border: var(--border-primary);
+  --accordion-divider: var(--border-primary);
+  --accordion-trigger-bg: var(--bg-primary);
+  --accordion-trigger-bg-hover: var(--bg-secondary);
+  --accordion-trigger-text: var(--text-primary);
+  --accordion-icon-color: var(--text-tertiary);
+  --accordion-content-bg: var(--bg-primary);
+  --accordion-content-text: var(--text-secondary);
+
+  // ------------------------------------------
+  // Semantic - Form Input Colors
+  // Shared tokens for Input, Select, Textarea, Checkbox, Radio
+  // ------------------------------------------
+
+  // Text field base (Input, Select, Textarea)
+  --input-bg: var(--bg-primary);
+  --input-bg-disabled: var(--bg-secondary);
+  --input-text: var(--text-primary);
+  --input-placeholder: var(--text-tertiary);
+  --input-border: var(--border-primary);
+  --input-border-hover: var(--border-secondary);
+  --input-border-focus: var(--border-focus);
+  --input-border-error: var(--status-error);
+  --input-icon-color: var(--text-tertiary);
+  --input-error-text: var(--status-error);
+
+  // Choice controls (Checkbox, Radio)
+  --input-control-bg: var(--bg-primary);
+  --input-control-border: var(--border-primary);
+  --input-control-border-hover: var(--border-secondary);
+  --input-control-checked-bg: var(--color-primary-500);
+  --input-control-checked-bg-hover: var(--color-primary-600);
+  --input-control-checked-border: var(--color-primary-500);
+  --input-control-indicator: var(--color-white);
+}
+
+// ============================================
+// Dark Mode - Semantic Variable Overrides
+// Deep, rich dark theme
+// ============================================
+
+:root[data-theme='dark'] {
+  // Background - Much darker, near black
+  --bg-primary: #09090b;
+  --bg-secondary: #18181b;
+  --bg-tertiary: #27272a;
+  --bg-inverse: var(--color-gray-100);
+
+  // Text - Bright and clear
+  --text-primary: #fafafa;
+  --text-secondary: #a1a1aa;
+  --text-tertiary: #71717a;
+  --text-inverse: #09090b;
+  --text-disabled: #52525b;
+
+  // Border - Subtle but visible
+  --border-primary: #27272a;
+  --border-secondary: #3f3f46;
+  --border-focus: var(--color-primary-400);
+
+  // Interactive - Brighter for dark mode
+  --interactive-primary: var(--color-primary-400);
+  --interactive-primary-hover: var(--color-primary-300);
+  --interactive-primary-active: var(--color-primary-500);
+
+  --interactive-secondary: var(--color-secondary-400);
+  --interactive-secondary-hover: var(--color-secondary-300);
+  --interactive-secondary-active: var(--color-secondary-500);
+
+  // Status - Adjusted for dark backgrounds
+  --status-success: var(--color-success-400);
+  --status-success-bg: #052e16;
+  --status-success-border: var(--color-success-800);
+
+  --status-warning: var(--color-warning-400);
+  --status-warning-bg: #431407;
+  --status-warning-border: var(--color-warning-800);
+
+  --status-error: var(--color-error-400);
+  --status-error-bg: #450a0a;
+  --status-error-border: var(--color-error-800);
+
+  --status-info: var(--color-info-400);
+  --status-info-bg: #172554;
+  --status-info-border: var(--color-info-800);
+
+  // Focus Ring
+  --focus-ring: 0 0 0 2px var(--bg-primary), 0 0 0 4px var(--border-focus);
+
+  // Badge/Solid Colors - Slightly brighter for dark mode
+  --badge-primary-bg: var(--color-primary-500);
+  --badge-primary-text: var(--color-white);
+
+  --badge-secondary-bg: var(--color-gray-700);
+  --badge-secondary-text: var(--color-gray-200);
+
+  --badge-success-bg: var(--color-success-500);
+  --badge-success-text: var(--color-white);
+
+  --badge-warning-bg: var(--color-warning-500);
+  --badge-warning-text: var(--color-gray-900);
+
+  --badge-error-bg: var(--color-error-500);
+  --badge-error-text: var(--color-white);
+
+  // Button Colors - Dark mode
+  --button-primary-bg: var(--color-primary-500);
+  --button-primary-text: var(--color-white);
+  --button-primary-bg-hover: var(--color-primary-400);
+  --button-primary-bg-active: var(--color-primary-600);
+  --button-primary-bg-selected: var(--color-primary-600);
+
+  --button-secondary-bg: var(--color-secondary-500);
+  --button-secondary-text: var(--color-white);
+  --button-secondary-bg-hover: var(--color-secondary-400);
+  --button-secondary-bg-active: var(--color-secondary-600);
+  --button-secondary-bg-selected: var(--color-secondary-600);
+
+  --button-outline-bg: transparent;
+  --button-outline-text: var(--text-primary);
+  --button-outline-border: var(--input-border);
+  --button-outline-bg-hover: var(--color-gray-800);
+  --button-outline-border-hover: var(--color-gray-500);
+  --button-outline-bg-active: var(--color-gray-700);
+  --button-outline-bg-selected: var(--color-gray-700);
+  --button-outline-border-selected: var(--color-gray-500);
+
+  --button-ghost-bg: transparent;
+  --button-ghost-text: var(--text-primary);
+  --button-ghost-bg-hover: var(--color-gray-800);
+  --button-ghost-bg-active: var(--color-gray-700);
+  --button-ghost-bg-selected: var(--color-gray-700);
+
+  // Accordion Colors
+  --accordion-border: var(--border-primary);
+  --accordion-divider: var(--border-primary);
+  --accordion-trigger-bg: var(--bg-primary);
+  --accordion-trigger-bg-hover: var(--bg-secondary);
+  --accordion-trigger-text: var(--text-primary);
+  --accordion-icon-color: var(--text-tertiary);
+  --accordion-content-bg: var(--bg-primary);
+  --accordion-content-text: var(--text-secondary);
+
+  // Form Input Colors
+  --input-bg: var(--bg-primary);
+  --input-bg-disabled: var(--bg-secondary);
+  --input-text: var(--text-primary);
+  --input-placeholder: var(--text-tertiary);
+  --input-border: var(--border-primary);
+  --input-border-hover: var(--border-secondary);
+  --input-border-focus: var(--border-focus);
+  --input-border-error: var(--status-error);
+  --input-icon-color: var(--text-tertiary);
+  --input-error-text: var(--status-error);
+
+  --input-control-bg: var(--bg-primary);
+  --input-control-border: var(--border-primary);
+  --input-control-border-hover: var(--border-secondary);
+  --input-control-checked-bg: var(--color-primary-500);
+  --input-control-checked-bg-hover: var(--color-primary-400);
+  --input-control-checked-border: var(--color-primary-500);
+  --input-control-indicator: var(--color-white);
+
+  // Shadows - Glow effect for dark mode
+  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.5);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.6), 0 2px 4px -2px rgb(0 0 0 / 0.5);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.6), 0 4px 6px -4px rgb(0 0 0 / 0.5);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.6), 0 8px 10px -6px rgb(0 0 0 / 0.5);
+}
+
+// ============================================
+// System preference detection (optional fallback)
+// ============================================
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    // Background - Much darker, near black
+    --bg-primary: #09090b;
+    --bg-secondary: #18181b;
+    --bg-tertiary: #27272a;
+    --bg-inverse: var(--color-gray-100);
+
+    // Text - Bright and clear
+    --text-primary: #fafafa;
+    --text-secondary: #a1a1aa;
+    --text-tertiary: #71717a;
+    --text-inverse: #09090b;
+    --text-disabled: #52525b;
+
+    // Border - Subtle but visible
+    --border-primary: #27272a;
+    --border-secondary: #3f3f46;
+    --border-focus: var(--color-primary-400);
+
+    // Interactive - Brighter for dark mode
+    --interactive-primary: var(--color-primary-400);
+    --interactive-primary-hover: var(--color-primary-300);
+    --interactive-primary-active: var(--color-primary-500);
+
+    --interactive-secondary: var(--color-secondary-400);
+    --interactive-secondary-hover: var(--color-secondary-300);
+    --interactive-secondary-active: var(--color-secondary-500);
+
+    // Status - Adjusted for dark backgrounds
+    --status-success: var(--color-success-400);
+    --status-success-bg: #052e16;
+    --status-success-border: var(--color-success-800);
+
+    --status-warning: var(--color-warning-400);
+    --status-warning-bg: #431407;
+    --status-warning-border: var(--color-warning-800);
+
+    --status-error: var(--color-error-400);
+    --status-error-bg: #450a0a;
+    --status-error-border: var(--color-error-800);
+
+    --status-info: var(--color-info-400);
+    --status-info-bg: #172554;
+    --status-info-border: var(--color-info-800);
+
+    // Focus Ring
+    --focus-ring: 0 0 0 2px var(--bg-primary), 0 0 0 4px var(--border-focus);
+
+    // Badge/Solid Colors
+    --badge-primary-bg: var(--color-primary-500);
+    --badge-primary-text: var(--color-white);
+
+    --badge-secondary-bg: var(--color-gray-700);
+    --badge-secondary-text: var(--color-gray-200);
+
+    --badge-success-bg: var(--color-success-500);
+    --badge-success-text: var(--color-white);
+
+    --badge-warning-bg: var(--color-warning-500);
+    --badge-warning-text: var(--color-gray-900);
+
+    --badge-error-bg: var(--color-error-500);
+    --badge-error-text: var(--color-white);
+
+    // Button Colors
+    --button-primary-bg: var(--color-primary-500);
+    --button-primary-text: var(--color-white);
+    --button-primary-bg-hover: var(--color-primary-400);
+    --button-primary-bg-active: var(--color-primary-600);
+    --button-primary-bg-selected: var(--color-primary-600);
+
+    --button-secondary-bg: var(--color-secondary-500);
+    --button-secondary-text: var(--color-white);
+    --button-secondary-bg-hover: var(--color-secondary-400);
+    --button-secondary-bg-active: var(--color-secondary-600);
+    --button-secondary-bg-selected: var(--color-secondary-600);
+
+    --button-outline-bg: transparent;
+    --button-outline-text: var(--text-primary);
+    --button-outline-border: var(--input-border);
+    --button-outline-bg-hover: var(--color-gray-800);
+    --button-outline-border-hover: var(--color-gray-500);
+    --button-outline-bg-active: var(--color-gray-700);
+    --button-outline-bg-selected: var(--color-gray-700);
+    --button-outline-border-selected: var(--color-gray-500);
+
+    --button-ghost-bg: transparent;
+    --button-ghost-text: var(--text-primary);
+    --button-ghost-bg-hover: var(--color-gray-800);
+    --button-ghost-bg-active: var(--color-gray-700);
+    --button-ghost-bg-selected: var(--color-gray-700);
+
+    // Accordion Colors
+    --accordion-border: var(--border-primary);
+    --accordion-divider: var(--border-primary);
+    --accordion-trigger-bg: var(--bg-primary);
+    --accordion-trigger-bg-hover: var(--bg-secondary);
+    --accordion-trigger-text: var(--text-primary);
+    --accordion-icon-color: var(--text-tertiary);
+    --accordion-content-bg: var(--bg-primary);
+    --accordion-content-text: var(--text-secondary);
+
+    // Form Input Colors
+    --input-bg: var(--bg-primary);
+    --input-bg-disabled: var(--bg-secondary);
+    --input-text: var(--text-primary);
+    --input-placeholder: var(--text-tertiary);
+    --input-border: var(--border-primary);
+    --input-border-hover: var(--border-secondary);
+    --input-border-focus: var(--border-focus);
+    --input-border-error: var(--status-error);
+    --input-icon-color: var(--text-tertiary);
+    --input-error-text: var(--status-error);
+
+    --input-control-bg: var(--bg-primary);
+    --input-control-border: var(--border-primary);
+    --input-control-border-hover: var(--border-secondary);
+    --input-control-checked-bg: var(--color-primary-500);
+    --input-control-checked-bg-hover: var(--color-primary-400);
+    --input-control-checked-border: var(--color-primary-500);
+    --input-control-indicator: var(--color-white);
+  }
+}
