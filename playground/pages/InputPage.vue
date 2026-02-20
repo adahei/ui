@@ -149,12 +149,6 @@ const age = ref<number | null>(null)
             <td><code>-</code></td>
             <td>Icon on the right</td>
           </tr>
-          <tr>
-            <td><code>block</code></td>
-            <td><code>boolean</code></td>
-            <td><code>false</code></td>
-            <td>Full width, grows in flex containers</td>
-          </tr>
         </tbody>
       </table>
     </section>

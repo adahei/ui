@@ -17,7 +17,6 @@ interface Props {
   name?: string
   rows?: number
   resize?: 'none' | 'vertical' | 'horizontal' | 'both'
-  block?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -27,7 +26,6 @@ const props = withDefaults(defineProps<Props>(), {
   error: false,
   rows: 3,
   resize: 'vertical',
-  block: false,
 })
 
 const attrs = useAttrs()
@@ -66,7 +64,6 @@ const classes = computed(() => [
   {
     'ui-textarea--error': hasError.value,
     'ui-textarea--disabled': props.disabled,
-    'ui-textarea--block': props.block,
   },
 ])
 
@@ -117,13 +114,7 @@ if (import.meta.env.DEV) {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-1);
-
-  // Block (full width, grows in flex containers)
-  &--block {
-    width: 100%;
-    flex: 1 1 0%;
-    min-width: 0;
-  }
+  width: 100%;
 
   &__field {
     width: 100%;

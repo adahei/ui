@@ -10,13 +10,11 @@ interface Props {
   hint?: string
   size?: Size
   id?: string
-  block?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
   required: false,
   size: 'md',
-  block: false,
 })
 
 const generatedId = useId()
@@ -33,7 +31,6 @@ const classes = computed(() => [
   `ui-form-field--${props.size}`,
   {
     'ui-form-field--error': hasError.value,
-    'ui-form-field--block': props.block,
   },
 ])
 </script>
@@ -65,12 +62,9 @@ const classes = computed(() => [
   display: flex;
   flex-direction: column;
   gap: var(--spacing-1);
-
-  &--block {
-    width: 100%;
-    flex: 1 1 0%;
-    min-width: 0;
-  }
+  width: 100%;
+  flex: 1 1 0%;
+  min-width: 0;
 
   &__control {
     display: flex;

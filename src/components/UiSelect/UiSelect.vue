@@ -30,7 +30,6 @@ interface Props {
   error?: boolean | string
   id?: string
   name?: string
-  block?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -38,7 +37,6 @@ const props = withDefaults(defineProps<Props>(), {
   options: () => [],
   disabled: false,
   error: false,
-  block: false,
 })
 
 const attrs = useAttrs()
@@ -86,7 +84,6 @@ const classes = computed(() => [
     'ui-select--error': hasError.value,
     'ui-select--disabled': props.disabled,
     'ui-select--placeholder': props.modelValue === null || props.modelValue === '',
-    'ui-select--block': props.block,
   },
 ])
 
@@ -211,6 +208,7 @@ if (import.meta.env.DEV) {
   flex-direction: column;
   gap: var(--spacing-1);
   position: relative;
+  width: 100%;
 
   &__field {
     width: 100%;
@@ -340,11 +338,5 @@ if (import.meta.env.DEV) {
     }
   }
 
-  // Block (full width, grows in flex containers)
-  &--block {
-    width: 100%;
-    flex: 1 1 0%;
-    min-width: 0;
-  }
 }
 </style>

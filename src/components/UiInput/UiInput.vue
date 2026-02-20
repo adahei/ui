@@ -19,7 +19,6 @@ interface Props {
   autocomplete?: string
   iconLeft?: Component
   iconRight?: Component
-  block?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -28,7 +27,6 @@ const props = withDefaults(defineProps<Props>(), {
   disabled: false,
   readonly: false,
   error: false,
-  block: false,
 })
 
 const attrs = useAttrs()
@@ -98,7 +96,6 @@ const classes = computed(() => [
     'ui-input--disabled': props.disabled,
     'ui-input--with-icon-left': !!props.iconLeft,
     'ui-input--with-icon-right': hasRightIcon.value,
-    'ui-input--block': props.block,
   },
 ])
 
@@ -195,6 +192,7 @@ if (import.meta.env.DEV) {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-1);
+  width: 100%;
 
   &__wrapper {
     position: relative;
@@ -354,11 +352,5 @@ if (import.meta.env.DEV) {
     }
   }
 
-  // Block (full width, grows in flex containers)
-  &--block {
-    width: 100%;
-    flex: 1 1 0%;
-    min-width: 0;
-  }
 }
 </style>
