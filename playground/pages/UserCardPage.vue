@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { UiUserCard, UiButton, UiButtonGroup, UiBadge, UiCard } from '@/components'
+import { UiUserCard, UiButton, UiButtonGroup, UiBadge, UiStack } from '@/components'
 
 import imgSquare from '@/img/portrait_square.jpg'
 import imgLandscape from '@/img/portrait_landscape.jpg'
@@ -14,20 +14,52 @@ import imgLandscape from '@/img/portrait_landscape.jpg'
 
     <section class="page__section">
       <h2 class="page__section-title">Basic Usage</h2>
-      <UiCard variant="filled" padding="lg" class="example-row" style="align-items: flex-start;">
+      <UiStack direction="row" wrap="wrap" gap="4" align="start">
         <UiUserCard
           name="Jane Doe"
           description="Product Designer"
           :src="imgLandscape"
-          style="max-width: 280px;"
+          style="width: 280px;"
         />
 
         <UiUserCard
           name="John Smith"
           description="Software Engineer"
-          style="max-width: 280px;"
+          style="width: 280px;"
         />
-      </UiCard>
+      </UiStack>
+    </section>
+
+    <section class="page__section">
+      <h2 class="page__section-title">Aspect Ratios</h2>
+      <p class="page__description" style="margin-bottom: var(--spacing-3);">
+        Control the cover image aspect ratio with <code>portrait</code>, <code>square</code>, or <code>landscape</code>.
+      </p>
+      <UiStack direction="row" wrap="wrap" gap="4" align="start">
+        <UiUserCard
+          name="Portrait"
+          description="3:4 ratio"
+          :src="imgLandscape"
+          aspect-ratio="portrait"
+          style="width: 200px;"
+        />
+
+        <UiUserCard
+          name="Square"
+          description="1:1 ratio"
+          :src="imgSquare"
+          aspect-ratio="square"
+          style="width: 200px;"
+        />
+
+        <UiUserCard
+          name="Landscape"
+          description="16:9 ratio (default)"
+          :src="imgLandscape"
+          aspect-ratio="landscape"
+          style="width: 200px;"
+        />
+      </UiStack>
     </section>
 
     <section class="page__section">
@@ -35,7 +67,7 @@ import imgLandscape from '@/img/portrait_landscape.jpg'
       <p class="page__description" style="margin-bottom: var(--spacing-3);">
         Available in <code>sm</code>, <code>md</code>, and <code>lg</code> sizes.
       </p>
-      <UiCard variant="filled" padding="lg" class="example-row" style="align-items: flex-start;">
+      <UiStack direction="row" wrap="wrap" gap="4" align="start">
         <UiUserCard
           name="Small Card"
           description="Compact size"
@@ -71,7 +103,7 @@ import imgLandscape from '@/img/portrait_landscape.jpg'
             <UiButton>Follow</UiButton>
           </template>
         </UiUserCard>
-      </UiCard>
+      </UiStack>
     </section>
 
     <section class="page__section">
@@ -79,13 +111,13 @@ import imgLandscape from '@/img/portrait_landscape.jpg'
       <p class="page__description" style="margin-bottom: var(--spacing-3);">
         Pass an array of badges to display on the cover image.
       </p>
-      <UiCard variant="filled" padding="lg" class="example-row" style="align-items: flex-start;">
+      <UiStack direction="row" wrap="wrap" gap="4" align="start">
         <UiUserCard
           name="Emma Wilson"
           description="Lead Developer"
           :src="imgLandscape"
           :badges="[{ label: 'Pro', variant: 'primary' }]"
-          style="max-width: 280px;"
+          style="width: 280px;"
         >
           <template #actions>
             <UiButton size="sm">Connect</UiButton>
@@ -100,7 +132,7 @@ import imgLandscape from '@/img/portrait_landscape.jpg'
             { label: 'Verified', variant: 'success' },
             { label: 'Top Rated', variant: 'warning' }
           ]"
-          style="max-width: 280px;"
+          style="width: 280px;"
         >
           <template #actions>
             <UiButton size="sm">Hire</UiButton>
@@ -116,13 +148,13 @@ import imgLandscape from '@/img/portrait_landscape.jpg'
             { label: 'Premium', variant: 'primary' },
             { label: 'Featured', variant: 'secondary' }
           ]"
-          style="max-width: 280px;"
+          style="width: 280px;"
         >
           <template #actions>
             <UiButton size="sm">View Profile</UiButton>
           </template>
         </UiUserCard>
-      </UiCard>
+      </UiStack>
     </section>
 
     <section class="page__section">
@@ -130,12 +162,12 @@ import imgLandscape from '@/img/portrait_landscape.jpg'
       <p class="page__description" style="margin-bottom: var(--spacing-3);">
         Action buttons automatically expand to fill the available width.
       </p>
-      <UiCard variant="filled" padding="lg" class="example-row" style="align-items: flex-start;">
+      <UiStack direction="row" wrap="wrap" gap="4" align="start">
         <UiUserCard
           name="Bob Williams"
           description="Marketing Manager"
           :src="imgLandscape"
-          style="max-width: 280px;"
+          style="width: 280px;"
         >
           <template #actions>
             <UiButton size="sm">Follow</UiButton>
@@ -146,7 +178,7 @@ import imgLandscape from '@/img/portrait_landscape.jpg'
           name="Carol Davis"
           description="UX Researcher"
           :src="imgSquare"
-          style="max-width: 280px;"
+          style="width: 280px;"
         >
           <template #actions>
             <UiButtonGroup size="sm">
@@ -161,7 +193,7 @@ import imgLandscape from '@/img/portrait_landscape.jpg'
           description="Software Architect"
           :src="imgLandscape"
           :badges="[{ label: 'Available', variant: 'success' }]"
-          style="max-width: 280px;"
+          style="width: 280px;"
         >
           <template #actions>
             <UiButtonGroup size="sm">
@@ -171,18 +203,18 @@ import imgLandscape from '@/img/portrait_landscape.jpg'
             </UiButtonGroup>
           </template>
         </UiUserCard>
-      </UiCard>
+      </UiStack>
     </section>
 
     <section class="page__section">
       <h2 class="page__section-title">With Meta Info</h2>
-      <UiCard variant="filled" padding="lg" class="example-row" style="align-items: flex-start;">
+      <UiStack direction="row" wrap="wrap" gap="4" align="start">
         <UiUserCard
           name="David Lee"
           description="Full Stack Developer"
           :src="imgLandscape"
           :badges="[{ label: 'Online', variant: 'success' }]"
-          style="max-width: 280px;"
+          style="width: 280px;"
         >
           <template #meta>
             <UiBadge variant="success">Available for work</UiBadge>
@@ -196,24 +228,24 @@ import imgLandscape from '@/img/portrait_landscape.jpg'
           name="Emma Wilson"
           description="Data Scientist"
           :src="imgSquare"
-          style="max-width: 280px;"
+          style="width: 280px;"
         >
           <template #meta>
             San Francisco, CA
           </template>
         </UiUserCard>
-      </UiCard>
+      </UiStack>
     </section>
 
     <section class="page__section">
       <h2 class="page__section-title">With Footer</h2>
-      <UiCard variant="filled" padding="lg" class="example-row" style="align-items: flex-start;">
+      <UiStack direction="row" wrap="wrap" gap="4" align="start">
         <UiUserCard
           name="Frank Miller"
           description="Product Manager"
           :src="imgLandscape"
           :badges="[{ label: 'Featured', variant: 'primary' }]"
-          style="max-width: 280px;"
+          style="width: 280px;"
         >
           <template #actions>
             <UiButton size="sm">Follow</UiButton>
@@ -235,12 +267,12 @@ import imgLandscape from '@/img/portrait_landscape.jpg'
             </div>
           </template>
         </UiUserCard>
-      </UiCard>
+      </UiStack>
     </section>
 
     <section class="page__section">
       <h2 class="page__section-title">Horizontal Layout</h2>
-      <UiCard variant="filled" padding="lg" class="example-column">
+      <UiStack direction="column" gap="4">
         <UiUserCard
           name="Grace Chen"
           description="Senior Software Engineer at TechCorp"
@@ -294,7 +326,7 @@ import imgLandscape from '@/img/portrait_landscape.jpg'
             <span>2.4k Followers</span>
           </template>
         </UiUserCard>
-      </UiCard>
+      </UiStack>
     </section>
 
     <section class="page__section">
@@ -338,6 +370,12 @@ import imgLandscape from '@/img/portrait_landscape.jpg'
             <td><code>'sm' | 'md' | 'lg'</code></td>
             <td><code>'md'</code></td>
             <td>Card size</td>
+          </tr>
+          <tr>
+            <td><code>aspectRatio</code></td>
+            <td><code>'portrait' | 'square' | 'landscape'</code></td>
+            <td><code>'landscape'</code></td>
+            <td>Cover image aspect ratio</td>
           </tr>
           <tr>
             <td><code>badges</code></td>

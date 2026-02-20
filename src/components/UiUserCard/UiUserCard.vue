@@ -7,6 +7,7 @@ import type { Size } from '@/types'
 
 export type UserCardLayout = 'vertical' | 'horizontal'
 export type UserCardSize = Size
+export type UserCardAspectRatio = 'portrait' | 'square' | 'landscape'
 
 export interface UserCardBadge {
   label: string
@@ -24,6 +25,8 @@ interface Props {
   layout?: UserCardLayout
   /** Card size */
   size?: UserCardSize
+  /** Aspect ratio of the cover image */
+  aspectRatio?: UserCardAspectRatio
   /** Badges to display on the image */
   badges?: UserCardBadge[]
 }
@@ -31,6 +34,7 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   layout: 'vertical',
   size: 'md',
+  aspectRatio: 'landscape',
 })
 
 const imageError = ref(false)
@@ -58,7 +62,7 @@ function onImageError() {
 </script>
 
 <template>
-  <div class="ui-user-card" :class="[`ui-user-card--${layout}`, `ui-user-card--${size}`]">
+  <div class="ui-user-card" :class="[`ui-user-card--${layout}`, `ui-user-card--${size}`, `ui-user-card--aspect-${aspectRatio}`]">
     <div class="ui-user-card__cover-wrapper">
       <UiImage
         v-if="showImage"
@@ -326,6 +330,25 @@ function onImageError() {
     }
   }
 
+  // ===== ASPECT RATIOS =====
+  &--aspect-portrait {
+    .ui-user-card__cover {
+      aspect-ratio: 3 / 4;
+    }
+  }
+
+  &--aspect-square {
+    .ui-user-card__cover {
+      aspect-ratio: 1 / 1;
+    }
+  }
+
+  &--aspect-landscape {
+    .ui-user-card__cover {
+      aspect-ratio: 16 / 9;
+    }
+  }
+
   // ===== VERTICAL LAYOUT =====
   &--vertical {
     display: flex;
@@ -333,18 +356,6 @@ function onImageError() {
 
     .ui-user-card__cover-wrapper {
       width: 100%;
-    }
-
-    .ui-user-card__cover {
-      aspect-ratio: 16 / 9;
-    }
-
-    &.ui-user-card--sm .ui-user-card__cover {
-      aspect-ratio: 2 / 1;
-    }
-
-    &.ui-user-card--lg .ui-user-card__cover {
-      aspect-ratio: 4 / 3;
     }
   }
 

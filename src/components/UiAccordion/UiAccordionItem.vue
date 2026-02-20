@@ -210,8 +210,7 @@ const classes = computed(() => [
     }
 
     .ui-accordion-item__content {
-      padding: var(--spacing-4);
-      padding-top: 0;
+      padding: var(--spacing-1) var(--spacing-4) var(--spacing-4) var(--spacing-4);
     }
   }
 
