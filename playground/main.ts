@@ -118,6 +118,11 @@ const router = createRouter({
       component: () => import('./pages/SelectPage.vue'),
     },
     {
+      path: '/section-status',
+      name: 'section-status',
+      component: () => import('./pages/SectionStatusPage.vue'),
+    },
+    {
       path: '/slider',
       name: 'slider',
       component: () => import('./pages/SliderPage.vue'),

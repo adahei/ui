@@ -62,6 +62,7 @@ function toggleTheme() {
           <UiNavItem to="/alert" :active="route.path === '/alert'">Alert</UiNavItem>
           <UiNavItem to="/chat" :active="route.path === '/chat'">Chat</UiNavItem>
           <UiNavItem to="/message" :active="route.path === '/message'">Message</UiNavItem>
+          <UiNavItem to="/section-status" :active="route.path === '/section-status'">Section Status</UiNavItem>
           <UiNavItem to="/user-card" :active="route.path === '/user-card'">User Card</UiNavItem>
         </UiNavGroup>
 
