@@ -10,11 +10,17 @@ interface Props {
   hint?: string
   size?: Size
   id?: string
+  /** Display label and input on the same row */
+  inline?: boolean
+  /** Fixed width for the label when inline is true (in rem) */
+  labelWidth?: number
 }
 
 const props = withDefaults(defineProps<Props>(), {
   required: false,
   size: 'md',
+  inline: false,
+  labelWidth: 7.5,
 })
 
 const generatedId = useId()
@@ -31,29 +37,37 @@ const classes = computed(() => [
   `ui-form-field--${props.size}`,
   {
     'ui-form-field--error': hasError.value,
+    'ui-form-field--inline': props.inline,
   },
 ])
+
+const inlineStyles = computed(() =>
+  props.inline ? { '--label-width': `${props.labelWidth}rem` } : undefined
+)
 </script>
 
 <template>
-  <div :class="classes">
+  <div :class="classes" :style="inlineStyles">
     <UiLabel
       v-if="label"
       :html-for="fieldId"
       :required="required"
       :size="size"
+      class="ui-form-field__label"
     >
       {{ label }}
     </UiLabel>
-    <div class="ui-form-field__control">
-      <slot />
+    <div class="ui-form-field__content">
+      <div class="ui-form-field__control">
+        <slot />
+      </div>
+      <p v-if="error" :id="`${fieldId}-error`" class="ui-form-field__error" aria-live="polite">
+        {{ error }}
+      </p>
+      <p v-else-if="hint" :id="`${fieldId}-hint`" class="ui-form-field__hint">
+        {{ hint }}
+      </p>
     </div>
-    <p v-if="error" :id="`${fieldId}-error`" class="ui-form-field__error" aria-live="polite">
-      {{ error }}
-    </p>
-    <p v-else-if="hint" :id="`${fieldId}-hint`" class="ui-form-field__hint">
-      {{ hint }}
-    </p>
   </div>
 </template>
 
@@ -65,6 +79,14 @@ const classes = computed(() => [
   width: 100%;
   flex: 1 1 0%;
   min-width: 0;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-1);
+    flex: 1;
+    min-width: 0;
+  }
 
   &__control {
     display: flex;
@@ -81,6 +103,20 @@ const classes = computed(() => [
     color: var(--text-tertiary);
     font-size: var(--text-sm);
     margin: 0;
+  }
+
+  // Inline layout
+  &--inline {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--spacing-3);
+
+    .ui-form-field__label {
+      flex-shrink: 0;
+      width: var(--label-width);
+      text-align: right;
+      padding-top: var(--spacing-2);
+    }
   }
 
   // Size variants for hint/error text

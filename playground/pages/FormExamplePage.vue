@@ -128,6 +128,42 @@ function handleSubmit() {
       A comprehensive form demonstrating all form components working together.
     </p>
 
+    <section class="page__section">
+      <h2 class="page__section-title">Inline Form Layout</h2>
+      <p class="page__description" style="margin-bottom: var(--spacing-4);">
+        Using the <code>inline</code> prop displays label and input on the same row.
+        The <code>labelWidth</code> prop (in rem) controls the label column width.
+      </p>
+      <UiCard variant="outline" padding="lg" style="max-width: 600px;">
+        <UiStack gap="3">
+          <UiFormField label="Full Name" inline required>
+            <UiInput v-model="firstName" placeholder="John Doe" />
+          </UiFormField>
+          <UiFormField label="Email" inline required hint="We'll never share your email">
+            <UiInput v-model="email" type="email" placeholder="john@example.com" />
+          </UiFormField>
+          <UiFormField label="Company" inline>
+            <UiInput v-model="company" placeholder="Acme Inc." />
+          </UiFormField>
+          <UiFormField label="Department" inline>
+            <UiSelect v-model="department" :options="departmentOptions" />
+          </UiFormField>
+          <UiFormField
+            label="Password"
+            inline
+            :label-width="10"
+            :error="password.length > 0 && password.length < 8 ? 'Password must be at least 8 characters' : undefined"
+          >
+            <UiInput v-model="password" type="password" placeholder="Enter password" />
+          </UiFormField>
+        </UiStack>
+      </UiCard>
+    </section>
+
+    <section class="page__section">
+      <h2 class="page__section-title">Stacked Form Layout (Default)</h2>
+    </section>
+
     <form class="form-example" @submit.prevent="handleSubmit">
       <UiCard variant="filled" padding="lg">
         <UiStack gap="6">
