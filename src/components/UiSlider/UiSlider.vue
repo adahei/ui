@@ -142,6 +142,7 @@ function onInput(event: Event) {
     display: flex;
     justify-content: space-between;
     line-height: 1;
+    margin-bottom: 4px;
   }
 
   &__label {
@@ -293,17 +294,17 @@ function onInput(event: Event) {
       height: 1rem;
 
       &::-webkit-slider-runnable-track {
-        height: 4px;
+        height: 5px;
       }
 
       &::-moz-range-track {
-        height: 4px;
+        height: 5px;
       }
 
       &::-webkit-slider-thumb {
         width: 12px;
         height: 12px;
-        margin-top: -4px;
+        margin-top: -3.5px;
       }
 
       &::-moz-range-thumb {
@@ -318,17 +319,17 @@ function onInput(event: Event) {
       height: 1.25rem;
 
       &::-webkit-slider-runnable-track {
-        height: 4px;
+        height: 6px;
       }
 
       &::-moz-range-track {
-        height: 4px;
+        height: 6px;
       }
 
       &::-webkit-slider-thumb {
         width: 14px;
         height: 14px;
-        margin-top: -5px;
+        margin-top: -4px;
       }
 
       &::-moz-range-thumb {
