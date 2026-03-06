@@ -36,6 +36,7 @@ export type { SelectOption, SelectOptionGroup, SelectOptionOrGroup } from './UiS
 export { UiSectionStatus } from './UiSectionStatus'
 export type { SectionStatusState } from './UiSectionStatus'
 export { UiSlider } from './UiSlider'
+export type { SliderValuePosition } from './UiSlider'
 export { UiStack } from './UiStack'
 export type { StackDirection, StackGap, StackAlign, StackJustify, StackWrap } from './UiStack'
 export { UiTabs, UiTabList, UiTabTrigger, UiTabPanel } from './UiTabs'

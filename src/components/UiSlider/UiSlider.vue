@@ -6,6 +6,8 @@ defineOptions({
   inheritAttrs: false,
 })
 
+export type SliderValuePosition = 'right' | 'below'
+
 interface Props {
   modelValue?: number
   min?: number
@@ -15,6 +17,12 @@ interface Props {
   disabled?: boolean
   error?: boolean | string
   showValue?: boolean
+  /** Position of the current value display when showValue is true */
+  valuePosition?: SliderValuePosition
+  /** Label shown above the low end (left) of the slider */
+  lowValueLabel?: string
+  /** Label shown above the high end (right) of the slider */
+  highValueLabel?: string
   id?: string
   name?: string
 }
@@ -27,6 +35,7 @@ const props = withDefaults(defineProps<Props>(), {
   disabled: false,
   error: false,
   showValue: false,
+  valuePosition: 'right',
 })
 
 // Get size from parent input group if not explicitly set
@@ -70,8 +79,11 @@ const classes = computed(() => [
   {
     'ui-slider--error': hasError.value,
     'ui-slider--disabled': props.disabled,
+    'ui-slider--value-below': props.showValue && props.valuePosition === 'below',
   },
 ])
+
+const hasLabels = computed(() => props.lowValueLabel || props.highValueLabel)
 
 function onInput(event: Event) {
   const target = event.target as HTMLInputElement
@@ -81,6 +93,10 @@ function onInput(event: Event) {
 
 <template>
   <div :class="classes">
+    <div v-if="hasLabels" class="ui-slider__labels">
+      <span class="ui-slider__label ui-slider__label--low">{{ lowValueLabel }}</span>
+      <span class="ui-slider__label ui-slider__label--high">{{ highValueLabel }}</span>
+    </div>
     <div class="ui-slider__track-wrapper">
       <input
         v-bind="$attrs"
@@ -101,8 +117,9 @@ function onInput(event: Event) {
         :style="{ '--slider-percentage': `${percentage}%` }"
         @input="onInput"
       />
-      <span v-if="showValue" class="ui-slider__value" aria-hidden="true">{{ modelValue }}</span>
+      <span v-if="showValue && valuePosition === 'right'" class="ui-slider__value" aria-hidden="true">{{ modelValue }}</span>
     </div>
+    <span v-if="showValue && valuePosition === 'below'" class="ui-slider__value ui-slider__value--below" aria-hidden="true">{{ modelValue }}</span>
     <p v-if="errorMessage" :id="`${sliderId}-error`" class="ui-slider__error" aria-live="polite">
       {{ errorMessage }}
     </p>
@@ -115,6 +132,25 @@ function onInput(event: Event) {
   flex-direction: column;
   gap: var(--spacing-1);
   width: 100%;
+
+  &__labels {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--spacing-2);
+  }
+
+  &__label {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+
+    &--low {
+      text-align: left;
+    }
+
+    &--high {
+      text-align: right;
+    }
+  }
 
   &__track-wrapper {
     position: relative;
@@ -131,6 +167,10 @@ function onInput(event: Event) {
     color: var(--text-secondary);
     font-variant-numeric: tabular-nums;
     text-align: right;
+
+    &--below {
+      text-align: center;
+    }
   }
 
   &__input {

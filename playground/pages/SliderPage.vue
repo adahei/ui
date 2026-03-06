@@ -12,6 +12,8 @@ const errorValue = ref(10)
 const inputGroupValue = ref(50)
 const customRangeValue = ref(0)
 const steppedValue = ref(50)
+const labelsValue = ref(50)
+const valueBelowValue = ref(75)
 </script>
 
 <template>
@@ -42,6 +44,50 @@ const steppedValue = ref(50)
         <UiFormField label="Volume">
           <UiSlider v-model="basicValue" show-value />
         </UiFormField>
+      </UiCard>
+    </section>
+
+    <section class="page__section">
+      <h2 class="page__section-title">Value Position</h2>
+      <p class="page__description" style="margin-bottom: var(--spacing-3);">
+        Use <code>value-position="below"</code> to show the value centered below the slider.
+      </p>
+      <UiCard variant="filled" padding="lg" style="max-width: 400px;">
+        <UiStack gap="4">
+          <UiFormField label="Right (default)">
+            <UiSlider v-model="valueBelowValue" show-value value-position="right" />
+          </UiFormField>
+          <UiFormField label="Below">
+            <UiSlider v-model="valueBelowValue" show-value value-position="below" />
+          </UiFormField>
+        </UiStack>
+      </UiCard>
+    </section>
+
+    <section class="page__section">
+      <h2 class="page__section-title">With Labels</h2>
+      <p class="page__description" style="margin-bottom: var(--spacing-3);">
+        Use <code>low-value-label</code> and <code>high-value-label</code> to add labels above the slider ends.
+      </p>
+      <UiCard variant="filled" padding="lg" style="max-width: 400px;">
+        <UiStack gap="4">
+          <UiSlider
+            v-model="labelsValue"
+            low-value-label="Low"
+            high-value-label="High"
+            show-value
+            value-position="below"
+          />
+          <UiSlider
+            v-model="customRangeValue"
+            :min="-50"
+            :max="50"
+            low-value-label="Cold"
+            high-value-label="Hot"
+            show-value
+            value-position="below"
+          />
+        </UiStack>
       </UiCard>
     </section>
 
@@ -185,6 +231,24 @@ const steppedValue = ref(50)
             <td><code>boolean</code></td>
             <td><code>false</code></td>
             <td>Show current value inline</td>
+          </tr>
+          <tr>
+            <td><code>valuePosition</code></td>
+            <td><code>'right' | 'below'</code></td>
+            <td><code>'right'</code></td>
+            <td>Position of the value display</td>
+          </tr>
+          <tr>
+            <td><code>lowValueLabel</code></td>
+            <td><code>string</code></td>
+            <td><code>-</code></td>
+            <td>Label above the low end of the slider</td>
+          </tr>
+          <tr>
+            <td><code>highValueLabel</code></td>
+            <td><code>string</code></td>
+            <td><code>-</code></td>
+            <td>Label above the high end of the slider</td>
           </tr>
           <tr>
             <td><code>disabled</code></td>
