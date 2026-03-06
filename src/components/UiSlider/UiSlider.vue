@@ -130,18 +130,17 @@ function onInput(event: Event) {
 .ui-slider {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-1);
   width: 100%;
 
   &__labels {
     display: flex;
     justify-content: space-between;
-    gap: var(--spacing-2);
+    margin-bottom: var(--spacing-1);
   }
 
   &__label {
-    font-size: var(--text-sm);
-    color: var(--text-secondary);
+    font-size: var(--text-xs);
+    color: var(--text-tertiary);
 
     &--low {
       text-align: left;
@@ -162,14 +161,18 @@ function onInput(event: Event) {
   &__value {
     flex-shrink: 0;
     min-width: 2.5rem;
+    padding: var(--spacing-1) var(--spacing-2);
     font-size: var(--text-sm);
     font-weight: var(--font-medium);
-    color: var(--text-secondary);
+    color: var(--text-primary);
     font-variant-numeric: tabular-nums;
-    text-align: right;
+    text-align: center;
+    background-color: var(--bg-tertiary);
+    border-radius: var(--radius-sm);
 
     &--below {
-      text-align: center;
+      align-self: center;
+      margin-top: var(--spacing-2);
     }
   }
 
