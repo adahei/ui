@@ -117,13 +117,9 @@ function onInput(event: Event) {
         :style="{ '--slider-percentage': `${percentage}%` }"
         @input="onInput"
       />
-      <span v-if="showValue && valuePosition === 'right'" class="ui-slider__value" aria-hidden="true">
-        <slot name="value" :value="modelValue">{{ modelValue }}</slot>
-      </span>
+      <span v-if="showValue && valuePosition === 'right'" class="ui-slider__value" aria-hidden="true">{{ modelValue }}</span>
     </div>
-    <span v-if="showValue && valuePosition === 'below'" class="ui-slider__value ui-slider__value--below" aria-hidden="true">
-      <slot name="value" :value="modelValue">{{ modelValue }}</slot>
-    </span>
+    <span v-if="showValue && valuePosition === 'below'" class="ui-slider__value ui-slider__value--below" aria-hidden="true">{{ modelValue }}</span>
     <p v-if="errorMessage" :id="`${sliderId}-error`" class="ui-slider__error" aria-live="polite">
       {{ errorMessage }}
     </p>

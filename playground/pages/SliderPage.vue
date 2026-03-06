@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import { UiSlider, UiCard, UiStack, UiFormField, UiInputGroup, UiInputGroupText } from '@/components'
 
 const basicValue = ref(50)
@@ -15,9 +15,6 @@ const steppedValue = ref(50)
 const labelsValue = ref(50)
 const valueBelowValue = ref(75)
 const labeledSliderValue = ref(65)
-const eyeSizeValue = ref(1)
-const eyeSizeLabels = ['Small', 'Medium', 'Large', 'Very Large']
-const eyeSizeText = computed(() => eyeSizeLabels[eyeSizeValue.value])
 </script>
 
 <template>
@@ -101,30 +98,15 @@ const eyeSizeText = computed(() => eyeSizeLabels[eyeSizeValue.value])
         Combine with <code>UiFormField</code> for a complete labeled slider with range indicators.
       </p>
       <UiCard variant="filled" padding="lg" style="max-width: 400px;">
-        <UiStack gap="4">
-          <UiFormField label="Confidence Level">
-            <UiSlider
-              v-model="labeledSliderValue"
-              low-value-label="Uncertain"
-              high-value-label="Very Confident"
-              show-value
-              value-position="below"
-            />
-          </UiFormField>
-          <UiFormField label="Eye Size" inline :label-width="5">
-            <UiSlider
-              v-model="eyeSizeValue"
-              :min="0"
-              :max="3"
-              low-value-label="Small"
-              high-value-label="Very Large"
-              show-value
-              value-position="below"
-            >
-              <template #value>{{ eyeSizeText }}</template>
-            </UiSlider>
-          </UiFormField>
-        </UiStack>
+        <UiFormField label="Confidence Level">
+          <UiSlider
+            v-model="labeledSliderValue"
+            low-value-label="Uncertain"
+            high-value-label="Very Confident"
+            show-value
+            value-position="below"
+          />
+        </UiFormField>
       </UiCard>
     </section>
 
