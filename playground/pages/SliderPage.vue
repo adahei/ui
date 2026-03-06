@@ -15,6 +15,9 @@ const steppedValue = ref(50)
 const labelsValue = ref(50)
 const valueBelowValue = ref(75)
 const labeledSliderValue = ref(65)
+const eyeSizeValue = ref(1)
+const eyeSizeLabels = ['Small', 'Medium', 'Large', 'Very Large']
+const formatEyeSize = (value: number) => eyeSizeLabels[value]
 </script>
 
 <template>
@@ -98,15 +101,28 @@ const labeledSliderValue = ref(65)
         Combine with <code>UiFormField</code> for a complete labeled slider with range indicators.
       </p>
       <UiCard variant="filled" padding="lg" style="max-width: 400px;">
-        <UiFormField label="Confidence Level">
-          <UiSlider
-            v-model="labeledSliderValue"
-            low-value-label="Uncertain"
-            high-value-label="Very Confident"
-            show-value
-            value-position="below"
-          />
-        </UiFormField>
+        <UiStack gap="4">
+          <UiFormField label="Confidence Level">
+            <UiSlider
+              v-model="labeledSliderValue"
+              low-value-label="Uncertain"
+              high-value-label="Very Confident"
+              show-value
+              value-position="below"
+            />
+          </UiFormField>
+          <UiFormField label="Eye Size">
+            <UiSlider
+              v-model="eyeSizeValue"
+              :min="0"
+              :max="3"
+              low-value-label="Small"
+              high-value-label="Very Large"
+              show-value
+              :value-formatter="formatEyeSize"
+            />
+          </UiFormField>
+        </UiStack>
       </UiCard>
     </section>
 

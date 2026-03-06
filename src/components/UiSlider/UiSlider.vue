@@ -23,6 +23,8 @@ interface Props {
   lowValueLabel?: string
   /** Label shown above the high end (right) of the slider */
   highValueLabel?: string
+  /** Function to format the displayed value */
+  valueFormatter?: (value: number) => string
   id?: string
   name?: string
 }
@@ -85,6 +87,10 @@ const classes = computed(() => [
 
 const hasLabels = computed(() => props.lowValueLabel || props.highValueLabel)
 
+const displayValue = computed(() =>
+  props.valueFormatter ? props.valueFormatter(props.modelValue) : String(props.modelValue)
+)
+
 function onInput(event: Event) {
   const target = event.target as HTMLInputElement
   emit('update:modelValue', Number(target.value))
@@ -117,9 +123,9 @@ function onInput(event: Event) {
         :style="{ '--slider-percentage': `${percentage}%` }"
         @input="onInput"
       />
-      <span v-if="showValue && valuePosition === 'right'" class="ui-slider__value" aria-hidden="true">{{ modelValue }}</span>
+      <span v-if="showValue && valuePosition === 'right'" class="ui-slider__value" aria-hidden="true">{{ displayValue }}</span>
     </div>
-    <span v-if="showValue && valuePosition === 'below'" class="ui-slider__value ui-slider__value--below" aria-hidden="true">{{ modelValue }}</span>
+    <span v-if="showValue && valuePosition === 'below'" class="ui-slider__value ui-slider__value--below" aria-hidden="true">{{ displayValue }}</span>
     <p v-if="errorMessage" :id="`${sliderId}-error`" class="ui-slider__error" aria-live="polite">
       {{ errorMessage }}
     </p>
