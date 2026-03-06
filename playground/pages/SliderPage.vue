@@ -286,6 +286,12 @@ const formatEyeSize = (value: number) => eyeSizeLabels[value]
             <td>Label above the high end of the slider</td>
           </tr>
           <tr>
+            <td><code>valueFormatter</code></td>
+            <td><code>(value: number) => string</code></td>
+            <td><code>-</code></td>
+            <td>Function to format the displayed value</td>
+          </tr>
+          <tr>
             <td><code>disabled</code></td>
             <td><code>boolean</code></td>
             <td><code>false</code></td>
