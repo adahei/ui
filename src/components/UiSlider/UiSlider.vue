@@ -169,7 +169,7 @@ function onInput(event: Event) {
     flex-shrink: 0;
     min-width: 2rem;
     padding: 2px var(--spacing-1);
-    font-size: var(--text-xs);
+    font-size: var(--text-sm);
     font-weight: var(--font-medium);
     color: var(--text-primary);
     font-variant-numeric: tabular-nums;
