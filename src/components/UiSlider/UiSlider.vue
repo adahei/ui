@@ -135,7 +135,7 @@ function onInput(event: Event) {
   &__labels {
     display: flex;
     justify-content: space-between;
-    margin-bottom: var(--spacing-1);
+    line-height: 1;
   }
 
   &__label {
@@ -155,24 +155,24 @@ function onInput(event: Event) {
     position: relative;
     display: flex;
     align-items: center;
-    gap: var(--spacing-3);
+    gap: var(--spacing-2);
   }
 
   &__value {
     flex-shrink: 0;
-    min-width: 2.5rem;
-    padding: var(--spacing-1) var(--spacing-2);
-    font-size: var(--text-sm);
+    min-width: 2rem;
+    padding: 2px var(--spacing-1);
+    font-size: var(--text-xs);
     font-weight: var(--font-medium);
     color: var(--text-primary);
     font-variant-numeric: tabular-nums;
     text-align: center;
     background-color: var(--bg-tertiary);
     border-radius: var(--radius-sm);
+    line-height: 1.2;
 
     &--below {
       align-self: center;
-      margin-top: var(--spacing-2);
     }
   }
 
@@ -284,7 +284,32 @@ function onInput(event: Event) {
   // Sizes
   &--sm {
     .ui-slider__input {
-      height: 1.5rem;
+      height: 1rem;
+
+      &::-webkit-slider-runnable-track {
+        height: 4px;
+      }
+
+      &::-moz-range-track {
+        height: 4px;
+      }
+
+      &::-webkit-slider-thumb {
+        width: 12px;
+        height: 12px;
+        margin-top: -4px;
+      }
+
+      &::-moz-range-thumb {
+        width: 12px;
+        height: 12px;
+      }
+    }
+  }
+
+  &--md {
+    .ui-slider__input {
+      height: 1.25rem;
 
       &::-webkit-slider-runnable-track {
         height: 4px;
@@ -307,9 +332,9 @@ function onInput(event: Event) {
     }
   }
 
-  &--md {
+  &--lg {
     .ui-slider__input {
-      height: 2rem;
+      height: 1.5rem;
 
       &::-webkit-slider-runnable-track {
         height: 6px;
@@ -328,31 +353,6 @@ function onInput(event: Event) {
       &::-moz-range-thumb {
         width: 18px;
         height: 18px;
-      }
-    }
-  }
-
-  &--lg {
-    .ui-slider__input {
-      height: 2.5rem;
-
-      &::-webkit-slider-runnable-track {
-        height: 8px;
-      }
-
-      &::-moz-range-track {
-        height: 8px;
-      }
-
-      &::-webkit-slider-thumb {
-        width: 22px;
-        height: 22px;
-        margin-top: -7px;
-      }
-
-      &::-moz-range-thumb {
-        width: 22px;
-        height: 22px;
       }
     }
   }

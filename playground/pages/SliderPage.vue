@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { UiSlider, UiCard, UiStack, UiFormField, UiInputGroup, UiInputGroupText, UiLabel } from '@/components'
+import { UiSlider, UiCard, UiStack, UiFormField, UiInputGroup, UiInputGroupText } from '@/components'
 
 const basicValue = ref(50)
 const smallValue = ref(25)
@@ -93,13 +93,12 @@ const labeledSliderValue = ref(65)
     </section>
 
     <section class="page__section">
-      <h2 class="page__section-title">With UiLabel</h2>
+      <h2 class="page__section-title">Complete Example</h2>
       <p class="page__description" style="margin-bottom: var(--spacing-3);">
-        Combine with <code>UiLabel</code> for a complete labeled slider with range indicators.
+        Combine with <code>UiFormField</code> for a complete labeled slider with range indicators.
       </p>
       <UiCard variant="filled" padding="lg" style="max-width: 400px;">
-        <UiStack gap="2">
-          <UiLabel>Confidence Level</UiLabel>
+        <UiFormField label="Confidence Level">
           <UiSlider
             v-model="labeledSliderValue"
             low-value-label="Uncertain"
@@ -107,7 +106,7 @@ const labeledSliderValue = ref(65)
             show-value
             value-position="below"
           />
-        </UiStack>
+        </UiFormField>
       </UiCard>
     </section>
 
